@@ -20,7 +20,12 @@ func get() {
 	if err != nil {
 		panic(err)
 	}
-	defer r.Body.Close()
+	defer func() {
+		err := r.Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}()
 	content, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		panic(err)
@@ -32,7 +37,12 @@ func post() {
 	if r, err := http.Post("http://httpbin.org/post", "", nil); err != nil {
 		panic(err)
 	} else {
-		defer r.Body.Close()
+		defer func() {
+			err := r.Body.Close()
+			if err != nil {
+				panic(err)
+			}
+		}()
 		if content, err := ioutil.ReadAll(r.Body); err != nil {
 			panic(err)
 		} else {
@@ -50,7 +60,12 @@ func put() {
 	if err != nil {
 		panic(err)
 	}
-	defer r.Body.Close()
+	defer func() {
+		err := r.Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}()
 	content, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		panic(err)
@@ -66,7 +81,12 @@ func del() {
 	if err != nil {
 		panic(err)
 	}
-	defer r.Body.Close()
+	defer func() {
+		err := r.Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}()
 	content, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		panic(err)

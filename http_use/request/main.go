@@ -33,6 +33,11 @@ func requestByParams() {
 	if err != nil {
 		panic(err)
 	}
-	defer r.Body.Close()
+	defer func() {
+		err := r.Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}()
 	printBody(r)
 }
