@@ -12,8 +12,10 @@ func main() {
 	put()
 	del()
 }
+
+// Here are a few simple demonstrations
 func get() {
-	// http://httpbin.org A website that demonstrates http
+	// http://httpbin.org A website that demonstrates http_use
 	r, err := http.Get("http://httpbin.org/get")
 	if err != nil {
 		panic(err)
