@@ -45,7 +45,7 @@ func encoding(r *http.Response) {
 	if err != nil {
 		panic(err)
 	}
-	// 获取编码
+	// DetermineEncoding通过检查确定HTML文档的编码
 	e, _, _ := charset.DetermineEncoding(bytes, r.Header.Get("content-type"))
 	// 调用编码对应的解码器解码
 	bodyReader := transform.NewReader(bufReader, e.NewDecoder())
