@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+
+<body>
+{{define "test"}}
+<ul>
+    <li>name: {{.Name}}</li>
+    <li>version: {{.Version}}</li>
+    {{range $v := .Children}}
+    <li>{{template "test" $v}}</li>
+    {{end}}
+</ul>
+{{end}}
+{{template "test" . }}
+</body>
+</html>
