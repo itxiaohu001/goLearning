@@ -36,9 +36,9 @@ func header(r *http.Response) {
 	fmt.Println(r.Header.Get("Content-Type"))
 }
 func encoding(r *http.Response) {
-	// 1.content-type中会提供编码信息，比如 content-type="text/html;charset=utf-8"
-	// 2.html head meta获取编码,
-	// <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	// 1.content-type中会提供编码信息，比如 content-type="text/html_use;charset=utf-8"
+	// 2.html_use head meta获取编码,
+	// <meta http-equiv=Content-Type content="text/html_use;charset=utf-8">
 	// 3.以上都没有编码信息的话就用猜测的方式来取到编码信息
 	bufReader := bufio.NewReader(r.Body)
 	bytes, err := bufReader.Peek(1024)
