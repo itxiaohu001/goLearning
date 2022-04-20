@@ -35,7 +35,7 @@ func main() {
 }
 func tempTest(testdata *data) {
 	// 定义一个模板函数
-	tmpl, err := template.ParseFiles("./html_use/template/test.tmpl")
+	tmpl, err := template.ParseFiles("./html_use/template/demo1/test.tmpl")
 	if err != nil {
 		fmt.Println("create template failed, err:", err)
 		return
