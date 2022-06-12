@@ -5,3 +5,4 @@ do something on dev2
 do something on dev2
 do something on dev
 do something on juns
+do something on main
