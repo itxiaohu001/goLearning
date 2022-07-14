@@ -7,26 +7,26 @@ type animal interface {
 	eat()
 }
 type Dog struct {
-	name string
+}
+type Cat struct {
 }
 
 func (dog *Dog) eat() {
-	fmt.Printf("%s is eating a bone\n", dog.name)
+	fmt.Printf("dog is eating")
 }
-
-type Cat struct {
-	name string
-}
-
 func (cat *Cat) eat() {
-	fmt.Printf("%s is eating a fish\n", cat.name)
+	fmt.Println("cat is eating")
 }
-func whichAnimal(x animal) {
-	x.eat()
+func newAnimal(str string) animal {
+	if str == "dog" {
+		return &Dog{}
+	} else if str == "cat" {
+		return &Cat{}
+	} else {
+		return nil
+	}
 }
 func main() {
-	dog := &Dog{name: "ah"}
-	cat := &Cat{name: "miao"}
-	whichAnimal(dog)
-	whichAnimal(cat)
+	a := newAnimal("dog")
+	a.eat()
 }
